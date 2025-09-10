@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-// import Page404 from "./pages/404";
+import Page404 from "./pages/404";
 
 const App = () => {
   return (
@@ -10,8 +10,8 @@ const App = () => {
         <Route index element = {<Home/>} />
         <Route path="/home" element={<Home/>}/>
         
-         {/* direct-all non existant routes for 404 */}
-         {/* <Route path="*" element={<Page404 />} /> */}
+        {/* direct-all non existant routes for 404 */}
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );
