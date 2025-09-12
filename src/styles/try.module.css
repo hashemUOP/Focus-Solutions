@@ -1,0 +1,91 @@
+.container { 
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  height: 1500dvh
+}
+
+/* PANEL A and B are both 100vh so page height is 200vh => scrollable */
+.panelA{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: white;
+}
+.panelB {
+  background-color: thistle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(66, 1fr);
+  background-color: black;
+  width: 100dvw;
+}
+
+/* background panel (below) */
+.panelA {
+  z-index: 1;
+}
+
+/* sliding panel (above) - in-flow element that we move with translateY */
+.panelB {
+  z-index: 2;
+  transition: transform 180ms ease-out; /* tweak for smoothing */
+  will-change: transform;
+}
+
+/* Slider wrapper fixed on the screen so it's always visible */
+/* .sliderWrap {
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.06);
+  padding: 8px 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+} */
+
+/* small label */
+.sliderLabel {
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Native range input styling (kept simple) */
+/* .slider {
+  width: 160px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+  background: rgba(255,255,255,0.25);
+} */
+
+/* Thumb for modern browsers */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
