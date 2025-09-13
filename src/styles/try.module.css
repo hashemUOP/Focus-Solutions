@@ -4,7 +4,7 @@
   padding: 0;
   overflow: hidden;
   background-color: black;
-  height: 1500dvh
+  height:3000px;
 }
 
 /* PANEL A and B are both 100vh so page height is 200vh => scrollable */

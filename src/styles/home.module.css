@@ -86,22 +86,55 @@ html, body {
     grid-column: span 5 / span 5;
     grid-row: span 6 / span 6;
     grid-row-start: 7;
-    background-color: brown;
     display: flex;
+    background-color: white;
     flex-direction: column;
     align-items: center;
     /* height:180dvh; */
 }
-.div2_col{
+.div2_cols{
   display:flex;
   flex-direction:column;
-  gap:20px;
-  /* height: 100dvh; */
+  gap:40px;
+
 }
-.div2_col_img{
+.div2_button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 17px;
+  height: 30px;
+  border: none;
+  cursor: pointer; 
+}
+.div2_button:hover{
+  background-color: gray;
+}
+/* .div2_col_img{
     width:200px;
     height:150px;
     object-fit: contain;
+} */
+.div2_col_img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.showMoreBtn {
+  background: #2b8aee;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease-in-out;
+}
+
+.showMoreBtn:hover {
+  background: #1f6fcc;
 }
 
 .div3 {

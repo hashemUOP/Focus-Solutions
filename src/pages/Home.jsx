@@ -1,31 +1,31 @@
-import react from 'react';
+import react,{useState} from 'react';
 import Spline from '@splinetool/react-spline';
 import styles from '../styles/home.module.css'
 import SlideAnime from './SlideAnime';
 import { FaAngleDown } from "react-icons/fa6";
-import logo1 from '../assets/images/home/logos/4-removebg-preview.png';
-import logo2 from '../assets/images/home/logos/arab-bank-removebg-preview.png';
-import logo3 from '../assets/images/home/logos/1630604748905-removebg-preview.png';
-import logo4 from '../assets/images/home/logos/bank-al-etihad-removebg-preview.png';
-import logo5 from '../assets/images/home/logos/cairo-amman-bank_jo.png';
-import logo6 from '../assets/images/home/logos/capital-1-removebg-preview.png';
-import logo7 from '../assets/images/home/logos/central-bank-of-libya-removebg-preview.png';
-import logo8 from '../assets/images/home/logos/citi-bank-removebg-preview.png';
-import logo9 from '../assets/images/home/logos/giz-removebg-preview.png';
-import logo10 from '../assets/images/home/logos/hb_logo_-_en-01-removebg-preview.png';
-import logo11 from '../assets/images/home/logos/icc-removebg-preview.png';
-import logo12 from '../assets/images/home/logos/images-removebg-preview.png';
-import logo13 from '../assets/images/home/logos/invest-bank-removebg-preview.png';
-import logo14 from '../assets/images/home/logos/jordan_ahli_bank_ahli-01-removebg-preview.png';
-import logo15 from '../assets/images/home/logos/jordan-commercial-bank-removebg-preview.png';
-import logo16 from '../assets/images/home/logos/libyan-islamic-bank-removebg-preview.png';
-import logo17 from '../assets/images/home/logos/national-bank-of-Iraq-removebg-preview.png';
-import logo18 from '../assets/images/home/logos/national-commercial-bank-libya-removebg-preview.png';
-import logo19 from '../assets/images/home/logos/safwa-bank-removebg-preview.png';
-import logo20 from '../assets/images/home/logos/standard-chartered-removebg-preview.png';
-import logo21 from '../assets/images/home/logos/who-removebg-preview.png';
-import logo22 from '../assets/images/home/logos/Zain_(Unternehmen)_logo.svg.png';
-import logo23 from '../assets/images/home/logos/بنك-الخرطوم-السودان-removebg-preview.png';
+import logo1 from '../assets/images/home/logos/4-removebg-preview.webp';
+import logo2 from '../assets/images/home/logos/arab-bank-removebg-preview.webp';
+import logo3 from '../assets/images/home/logos/1630604748905-removebg-preview.webp';
+import logo4 from '../assets/images/home/logos/bank-al-etihad-removebg-preview.webp';
+import logo5 from '../assets/images/home/logos/cairo-amman-bank_jo.webp';
+import logo6 from '../assets/images/home/logos/capital-1-removebg-preview.webp';
+import logo7 from '../assets/images/home/logos/central-bank-of-libya-removebg-preview.webp';
+import logo8 from '../assets/images/home/logos/citi-bank-removebg-preview.webp';
+import logo9 from '../assets/images/home/logos/giz-removebg-preview.webp';
+import logo10 from '../assets/images/home/logos/hb_logo_-_en-01-removebg-preview.webp';
+import logo11 from '../assets/images/home/logos/icc-removebg-preview.webp';
+import logo12 from '../assets/images/home/logos/images-removebg-preview.webp';
+import logo13 from '../assets/images/home/logos/invest-bank-removebg-preview.webp';
+import logo14 from '../assets/images/home/logos/jordan_ahli_bank_ahli-01-removebg-preview.webp';
+import logo15 from '../assets/images/home/logos/jordan-commercial-bank-removebg-preview.webp';
+import logo16 from '../assets/images/home/logos/libyan-islamic-bank-removebg-preview.webp';
+import logo17 from '../assets/images/home/logos/national-bank-of-Iraq-removebg-preview.webp';
+import logo18 from '../assets/images/home/logos/national-commercial-bank-libya-removebg-preview.webp';
+import logo19 from '../assets/images/home/logos/safwa-bank-removebg-preview.webp';
+import logo20 from '../assets/images/home/logos/standard-chartered-removebg-preview.webp';
+import logo21 from '../assets/images/home/logos/who-removebg-preview.webp';
+import logo22 from '../assets/images/home/logos/Zain_(Unternehmen)_logo.svg.webp';
+import logo23 from '../assets/images/home/logos/بنك-الخرطوم-السودان-removebg-preview.webp';
 
 export default function Home() {
   return (
@@ -93,41 +93,9 @@ function PanelBContent() {
         </button>
       </div>
       <div className={styles.div2}>
-        <p style={{marginTop:50}}>
-          Our Clients
-        </p>
-        <div style={{display:'flex',justifyContent:"space-between",gap:200,maxHeight:'100%'}}>
-          <div className={styles.div2_col}>
-            <img src={logo1} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo2} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo3} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo4} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo5} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo6} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo7} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo23} alt='logo' className={styles.div2_col_img}/>
-          </div>
-          <div className={styles.div2_col}>
-            <img src={logo8} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo9} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo10} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo11} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo12} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo13} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo14} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo22} alt='logo' className={styles.div2_col_img}/>
-          </div>
-          <div className={styles.div2_col}>
-            <img src={logo15} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo16} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo17} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo18} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo19} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo20} alt='logo' className={styles.div2_col_img}/>
-            <img src={logo21} alt='logo' className={styles.div2_col_img}/>
-          </div>
-        </div>
-      </div>
+        {/* div2 clients lists */}
+        <Clients/>
+      </div>  
       <div className={styles.div3}>3</div>
       <div className={styles.div4}>4</div>
       <div className={styles.div5}>5</div>
@@ -139,6 +107,7 @@ function PanelBContent() {
     </div>
   );
 }
+
 
 
 function Cards() {
@@ -189,5 +158,58 @@ function Cards() {
         </div>
       ))}
     </div>
+  );
+}
+
+
+function Clients() {
+  const [isMorePressed,setPress] = useState(false);
+  const columns = [
+    [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo23],
+    [logo8, logo9, logo10, logo11, logo12, logo13, logo14, logo22],
+    [logo15, logo16, logo17, logo18, logo19, logo20, logo21],
+  ];
+
+  return (
+    <>
+      <p style={{ marginTop: 100 }}>Our Clients</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-end", 
+          gap: 50,
+        }}
+      >
+        {/* Logos container */}
+        <div style={{ display: "flex", flexDirection: "row", gap: 300 }}>
+          {columns.map((col, i) => (
+            <div key={i} className={styles.div2_cols}>
+              {col
+                .slice(0, isMorePressed ? col.length : Math.ceil(col.length / 2))
+                .map((logo, j) => (
+                  <img
+                    key={j}
+                    src={logo}
+                    alt="logo"
+                    loading="lazy" //to make web images lighter so website doesn't feel heavy
+                    className={styles.div2_col_img}
+                  />
+                ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Button */}
+        {!isMorePressed && (
+          <button
+            className={styles.div2_button}
+            onClick={() => setPress(true)}
+          >
+            See More
+          </button>
+        )}
+    </>
   );
 }
