@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // CSS only
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import '../src/styles/global.css'; // activating global css to project
 // If you need Bootstrap's JS (includes Popper)
 import "bootstrap/dist/js/bootstrap.bundle.min";
 

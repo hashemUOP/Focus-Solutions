@@ -26,13 +26,6 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onSliderChange = (e) => {
-    const value = Number(e.target.value);
-    setSliderValue(value);
-    const prog = value / 100;
-    setProgress(prog);
-    window.scrollTo({ top: prog * window.innerHeight, behavior: "auto" });
-  };
 
   return (
     <div className={styles.container}>

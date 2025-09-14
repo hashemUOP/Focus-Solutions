@@ -4,7 +4,6 @@
   padding: 0;
   overflow: hidden;
   background-color: black;
-  height:3000px;
 }
 
 /* PANEL A and B are both 100vh so page height is 200vh => scrollable */
@@ -17,6 +16,8 @@
   padding: 0;
   font-size: 2rem;
   color: white;
+  height: 100vh;
+  z-index: 1;
 }
 .panelB {
   background-color: thistle;
@@ -29,22 +30,14 @@
   font-size: 2rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(66, 1fr);
+  grid-auto-rows: min-content;
   background-color: black;
   width: 100dvw;
-}
-
-/* background panel (below) */
-.panelA {
-  z-index: 1;
-}
-
-/* sliding panel (above) - in-flow element that we move with translateY */
-.panelB {
   z-index: 2;
   transition: transform 180ms ease-out; /* tweak for smoothing */
   will-change: transform;
 }
+
 
 /* Slider wrapper fixed on the screen so it's always visible */
 /* .sliderWrap {

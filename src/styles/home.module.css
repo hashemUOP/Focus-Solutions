@@ -1,27 +1,57 @@
 html, body {
   overflow-x: hidden;
 }
+.panelA_card {
+  width: 133px;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  text-align: center;  
+  gap: 10px; 
+}
 
+.panelA_card:hover{
+  cursor: pointer;
+  transform: scale(1.1); /* grows card by 10% */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* stronger shadow */
+}
+.panelA_Content_container{
+  position: absolute;
+  top: 25vh;
+  color: white;
+  padding: 10px;
+  z-index: 10;   /* no "px" */
+}
 
+.divider{
+  border: none;
+  height: 2px;
+  background-color: black;
+  margin-top: 10px;
+}
 .navbar {
   position: absolute;
   top: 20px;
-  left: 20px;
+  right:150px;
   z-index: 10;        
   color: white;       
   font-size: 1rem;
-  width: calc(100% - 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .navbar_child{
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(6px);
+  /* background: rgba(255,255,255,0.06); */
+  /* backdrop-filter: blur(6px); */
   display:flex;
-  gap:50;
   width:800px;
-  margin-right:40;
+  margin-right:30px;
   justify-content: space-between;
   height: 50px;
   align-items: center;
@@ -59,6 +89,19 @@ html, body {
   width: 100dvw;
   justify-content: center;
 }
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 18rem;
+  margin: 0 12px;
+}
+
+.card:hover {
+  transform: scale(1.1); /* grows card by 10% */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* stronger shadow */
+}
 .span1{
   font-size: 30px;
   font-weight: 500;
@@ -90,7 +133,18 @@ html, body {
     background-color: white;
     flex-direction: column;
     align-items: center;
-    /* height:180dvh; */
+}
+.div2_first_col{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+}
+.div2_second_col{
+  display: flex;
+  flex-direction: row;
+  gap: 300px;
 }
 .div2_cols{
   display:flex;
@@ -98,29 +152,40 @@ html, body {
   gap:40px;
 
 }
-.div2_button{
-  background-color: black;
-  color: white;
+.div2_button {
+  background-color: #000;
+  color: #fff;
   border-radius: 5px;
   width: 150px;
   font-size: 17px;
-  height: 30px;
+  height: 36px;
   border: none;
-  cursor: pointer; 
+  cursor: pointer;
+
+  /* make hover cheap and GPU accelerated */
+  will-change: transform, background-color;
+  transition: transform 120ms cubic-bezier(.2,.8,.2,1),
+              background-color 120ms ease;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Optional: create compositor layer immediately */
+  transform: translateZ(0);
 }
-.div2_button:hover{
-  background-color: gray;
+
+.div2_button:hover {
+  transform: translateY(-3px) scale(1.02); /* transform = GPU compositing */
+  background-color: #444;                   /* cheap paint */
 }
-/* .div2_col_img{
-    width:200px;
-    height:150px;
+.div2_col_img{
+    width:150px;
+    height:120px;
     object-fit: contain;
-} */
-.div2_col_img {
+}
+/* .div2_col_img {
   width: 100px;
   height: auto;
   object-fit: contain;
-}
+} */
 
 .showMoreBtn {
   background: #2b8aee;
@@ -141,7 +206,10 @@ html, body {
     grid-column: span 5 / span 5;
     grid-row: span 7 / span 7;
     grid-row-start: 13;
-    background-color: aqua;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .div4 {
@@ -156,6 +224,7 @@ html, body {
     grid-row: span 7 / span 7;
     grid-row-start: 27;
     background-color: azure;
+    height: 100%;
 }
 
 .div6 {
@@ -191,6 +260,7 @@ html, body {
     grid-row: span 6 / span 6;
     grid-row-start: 61;
     background-color: aquamarine;
+    margin-top: auto;
 }
         
 
