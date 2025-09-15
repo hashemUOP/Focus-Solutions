@@ -1,8 +1,9 @@
-import React, { lazy, Suspense, memo } from "react";
+// import React, { lazy, Suspense, memo } from "react";
+import React,{memo} from "react";
 import styles from "../styles/home.module.css";
-import bgImg from "../assets/images/home/bg/city-4996039_1280.jpg";
+import bgImg from "../assets/images/home/bg/creepy-old-factory-with-dark-rusted-machinery-eerie-silence_636537-427296.jpg";
 
-const SplineLazy = lazy(() => import("@splinetool/react-spline"));
+// const SplineLazy = lazy(() => import("@splinetool/react-spline"));
 
 const AutoRefreshComponent = memo(() => {
   return (

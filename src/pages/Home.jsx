@@ -28,6 +28,8 @@ import logo21 from '../assets/images/home/logos/who-removebg-preview.webp';
 import logo22 from '../assets/images/home/logos/Zain_(Unternehmen)_logo.svg.webp';
 import logo23 from '../assets/images/home/logos/بنك-الخرطوم-السودان-removebg-preview.webp';
 import focusLogo from '../assets/images/home/bg/fkn-focus-logo-300x97.png';
+import trapImg from '../assets/images/home/navbar images/pexels-lkloeppel-466685.jpg';
+import VerticalDivider from '../components/VerticalDivider';
 import { IoSettingsSharp } from "react-icons/io5";
 
 
@@ -128,50 +130,73 @@ export default function Home() {
 
 const PanelAContent = memo(() => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isNavHovered,setIsNavHovered] = useState(false);
+  const [isNavItemHovered,setIsItemNavHovered] = useState(false);
+  const navItems = [
+    "Services",
+    "Industries",
+    "Our Clients",
+    "Case Studies",
+    "Company",
+    "Contact us",
+  ];
+
   return (
     <>
       <AutoRefreshComponent/>
-      <div className={styles.navbar}>
-        <img
-          src={focusLogo}
-          loading="lazy"
-          style={{
-            width: 140,
-            marginRight:220,
-            //makes the logo white version
-            filter: 'invert(100%)',
-            // optional for smooth effect
-            transition: 'filter 0.3s',
-          }}
-        />
-
-        <div className={styles.navbar_child}>
-          <div className={styles.navbar_item}>
-            <span>Services</span>
-            <FaAngleDown />
-          </div>
-          <div className={styles.navbar_item}>
-            <span>Industries</span>
-            <FaAngleDown />
-          </div>
-          <div className={styles.navbar_item}>
-            <span>Our Clients</span>
-            <FaAngleDown />
-          </div>
-          <div className={styles.navbar_item}>
-            <span>Case Studies</span>
-            <FaAngleDown />
-          </div>
-          <div className={styles.navbar_item}>
-            <span>Company</span>
-            <FaAngleDown />
-          </div>
-          <div className={styles.navbar_item}>
-            <span>Contact us</span>
-            <FaAngleDown />
-          </div>
+      <div
+        className={styles.navbar}
+        onMouseEnter={() => setIsNavHovered(true)}
+        onMouseLeave={() => setIsNavHovered(false)}
+      >
+        <div className={styles.logo_navbar}>
+          <img
+            src={focusLogo}
+            loading="lazy"
+            style={{
+              width: 140,
+              marginRight: 220,
+              filter: isNavHovered ? null : "invert(100%)",
+              transition: isNavHovered ? null : "filter 0.3s",
+            }}
+          />
         </div>
+
+        <div className={styles.items_navbar}>
+          {navItems.map((item, idx) => (
+            <div
+              key={idx}
+              className={styles.navbar_item}
+              style={{ color: isNavHovered ? "black" : "white" }}
+              onMouseEnter={() => setIsItemNavHovered(true)}
+              onMouseLeave={() => setIsItemNavHovered(false)}
+            >
+              <span style={{ fontWeight: isNavHovered ? 900 : 400 }}>{item}</span>
+              {!isNavHovered ? <FaAngleDown /> : <div style={{ width: 12 }} />}
+            </div>
+          ))}
+        </div>
+        {isNavItemHovered &&
+          <div className={styles.navbar_info_container}>
+            <div className={styles.trapezoid}>
+              <img src={trapImg} loading='lazy' style={{objectFit:"cover",height:"100%",width:"100%"}}/>
+            </div>
+            <div style={{display:"flex",flexDirection:"row"}}>
+              <VerticalDivider thickness='1px' color='gray'/>
+              <div style={{display:"flex",flexDirection:"column"}}>
+                <span style={{color:'black',fontSize:20}}>item 1 </span>
+                <span style={{color:'black',fontSize:20}}>item 2 </span>
+                <span style={{color:'black',fontSize:20}}>item 3 </span>
+                <span style={{color:'black',fontSize:20}}>item 4 </span>
+              </div>
+            </div>
+
+          </div>
+        }
+
+      
       </div>
+      
 
       <div className={styles.panelA_Content_container}>
         <h1>Build Bespoke Software Solution for Your Business Growth</h1>
@@ -199,39 +224,28 @@ const PanelAContent = memo(() => {
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <IoSettingsSharp style={{color: hoveredIndex === idx ? "rgb(0, 114, 245)" : "white"}}/>
+              <IoSettingsSharp style={{color: hoveredIndex === idx ? "rgb(0, 114, 245)" : "white",height:40,width:40}}/>
                 <h5 className="card-title" style={{color: hoveredIndex === idx ? "black" : "white"}}>{card.title}</h5>
-                <p className="card-text" style={{ fontSize: 20}}>
-                </p>
               </div>
           ))}
         </div>
 
-        <div style={{ marginTop: "7vh", display: "flex", flexDirection: "row", gap: 20 }}>
-          <button style={{ height: "52px", width: "333px", fontSize: "16px", fontWeight: 400, backgroundColor: "blue", border: "none", color: "white" }}>
+        <div className= {styles.panelA_buttons_container}>
+          <button className={styles.panelA_button_one}>
             Book a free consultation
           </button>
-          <button style={{ height: "52px", width: "163px", fontSize: "16px", fontWeight: 400 }}>
+          <button className={styles.panelA_button_two}>
             View portfolio
           </button>
         </div>
       </div>
-
-      
-
     </>
   );
 });
 
 
 const PanelBContent = memo(() => {
-  // Clients button state (moved here)
   const [isMorePressed, setPress] = useState(false);
-
-  // cards data (inlined)
-  
-
-  // clients logos (inlined)
   
   return (
     <div>
