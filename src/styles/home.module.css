@@ -137,14 +137,7 @@ html, body {
   }
 }
 
-.div1 {
-    grid-column: span 5 / span 5;
-    grid-row: span 6 / span 6;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+
 .div1_cards{
   margin-top: 50px;
   display: flex;
@@ -189,15 +182,7 @@ html, body {
   margin-top:50px
 }
 
-.div2 {
-    grid-column: span 5 / span 5;
-    grid-row: span 6 / span 6;
-    grid-row-start: 7;
-    display: flex;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;
-}
+
 .div2_first_col{
   display: flex;
   flex-direction: row;
@@ -259,72 +244,24 @@ html, body {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .showMoreBtn:hover {
   background: #1f6fcc;
 }
 
-.div3 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 13;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.div4 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 20;
-    background-color: antiquewhite;
-}
-
-.div5 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 27;
-    background-color: azure;
-    height: 100%;
-}
-
-.div6 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 34;
-    background-color: blue;
-}
-
-.div7 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 41;
-    background-color: yellow;
-}
-
-.div8 {
-    grid-column: span 5 / span 5;
-    grid-row: span 6 / span 6;
-    grid-row-start: 48;
-    background-color: forestgreen;
-}
-
-.div9 {
-    grid-column: span 5 / span 5;
-    grid-row: span 7 / span 7;
-    grid-row-start: 54;
-    background-color: saddlebrown;
-}
-
-.div10 {
-    grid-column: span 5 / span 5;
-    grid-row: span 6 / span 6;
-    grid-row-start: 61;
-    background-color: aquamarine;
-    margin-top: auto;
+/* PanelB children */
+.div1, .div2, .div3, .div4,
+.div5, .div6, .div7, .div8,
+.div9, .div10 {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
         
+
 

@@ -4,6 +4,7 @@
   padding: 0;
   overflow: hidden;
   background-color: black;
+  height: 100%;
 }
 
 /* PANEL A and B are both 100vh so page height is 200vh => scrollable */
@@ -16,61 +17,48 @@
   padding: 0;
   font-size: 2rem;
   color: white;
-  height: 100vh;
   z-index: 1;
+  flex: 0 0 auto;
 }
-.panelB {
+/* .panelB {
   background-color: thistle;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   margin: 0;
   padding: 0;
   font-size: 2rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: min-content;
-  background-color: black;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 0px;
   width: 100dvw;
   z-index: 2;
-  transition: transform 180ms ease-out; /* tweak for smoothing */
+  transition: transform 180ms ease-out; 
   will-change: transform;
-}
-
-
-/* Slider wrapper fixed on the screen so it's always visible */
-/* .sliderWrap {
-  position: fixed;
-  right: 18px;
-  top: 18px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.06);
-  padding: 8px 10px;
-  border-radius: 8px;
-  backdrop-filter: blur(6px);
+  height: auto;
 } */
+.panelB {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0px;
+  padding: 0px;
+  position: relative;
+
+  width: 100dvw;
+  background-color: black;
+
+  transition: transform 180ms ease-out;
+  will-change: transform;
+  z-index: 2;
+  font-size: 2rem;
+  height: auto;   
+  flex: 1 1 auto; 
+}
 
 /* small label */
 .sliderLabel {
   font-size: 0.8rem;
   color: white;
 }
-
-/* Native range input styling (kept simple) */
-/* .slider {
-  width: 160px;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 6px;
-  border-radius: 999px;
-  outline: none;
-  background: rgba(255,255,255,0.25);
-} */
 
 /* Thumb for modern browsers */
 .slider::-webkit-slider-thumb {

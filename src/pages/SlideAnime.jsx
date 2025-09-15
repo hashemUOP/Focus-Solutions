@@ -5,6 +5,21 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
   const [sliderValue, setSliderValue] = useState(0); // 0..100
   const [progress, setProgress] = useState(0); // 0..1
 
+  //this code is important as it assures that the .container has the same height as the panel B
+  useEffect(() => {
+  const container = document.querySelector(`.${styles.container}`);
+  const panelB = document.querySelector(`.${styles.panelB}`);
+
+  if (container && panelB) {
+    const updateHeight = () => {
+      container.style.height = `${panelB.offsetHeight}px`;
+    };
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }
+  }, []);
+
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -30,17 +45,17 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
   return (
     <div className={styles.container}>
       {/* Panel A */}
-      <section className={styles.panelA}>
+      <div className={styles.panelA}>
         {PanelAContent}
-      </section>
+      </div>
 
       {/* Panel B */}
-      <section
+      <div
         className={styles.panelB}
         style={{ transform: `translateY(-${progress * 100}vh)` }}
       >
         {PanelBContent}
-      </section>
+      </div>
 
       {/* Slider UI
       <div className={styles.sliderWrap}>

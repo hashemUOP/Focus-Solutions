@@ -3,7 +3,6 @@ import AutoRefreshComponent from '../components/Bg';
 import Footer from '../components/Footer';
 import styles from '../styles/home.module.css';
 import SlideAnime from './SlideAnime';
-
 import { IoSettingsSharp } from "react-icons/io5";
 import NavBar from '../components/NavBar';
 import {cards_info,cards_info2,columns} from '../data/HomeData';
@@ -11,6 +10,7 @@ import {cards_info,cards_info2,columns} from '../data/HomeData';
 
 
 export default function Home() {
+  
   const targetRef = useRef(null);
   useEffect(() => {
     return () => {
@@ -223,15 +223,15 @@ const PanelBContent = memo(({ targetRef }) => {
           ))}
         </div>
       </div>
-      <div className={styles.div4}>4</div>
       <div className={styles.div5}>5</div>
       <div className={styles.div6}>6</div>
       <div className={styles.div7}>7</div>
       <div className={styles.div8}>8</div>
       <div className={styles.div9}>9</div>
       <div className={styles.div10}>
-        <Footer/>
+        10
       </div>
+      <div className={styles.div4} style={{height:300,width:'100vw',backgroundColor:"orange"}}><Footer/></div>
     </div>
   );
 });

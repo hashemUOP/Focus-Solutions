@@ -3,6 +3,8 @@
   color: #e6eef8;
   padding: 40px 16px;
   font-family: system_ui, _apple_system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  width: 100vw;
+  margin-top: 10px;
 }
 
 .footer_container {
