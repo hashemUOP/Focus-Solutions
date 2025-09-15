@@ -111,6 +111,19 @@ html, body {
   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0% 100%);
   margin-left:100px;
 }
+.slide_in {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .div1 {
     grid-column: span 5 / span 5;
     grid-row: span 6 / span 6;

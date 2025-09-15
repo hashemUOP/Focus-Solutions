@@ -5,7 +5,6 @@ export default function VerticalDivider({ thickness = '1px', color = 'gray'}) {
         width: thickness,
         backgroundColor: color,
         alignSelf: 'stretch',
-        margin: '0 10px'
     }} />
   )
 }

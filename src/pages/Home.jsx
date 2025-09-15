@@ -1,4 +1,4 @@
-import React, { useState, Suspense, memo } from 'react';
+import React, { useState, Suspense, memo,useEffect,useRef} from 'react';
 import AutoRefreshComponent from '../components/Bg';
 import Footer from '../components/Footer';
 import styles from '../styles/home.module.css';
@@ -118,17 +118,21 @@ const columns = [
 ];
 
 export default function Home() {
+  const targetRef = useRef(null);
+  useEffect(() => {
+    return () => {
+      console.log("Thanks for visiting the Focus Solutions website. My warmest regards, Hashem Sughaier(website creator).");
+    };
+  }, []);
   return (
     <SlideAnime
-      PanelAContent={<PanelAContent />}
-      PanelBContent={<PanelBContent />}
+      PanelAContent={<PanelAContent targetRef={targetRef} />}
+      PanelBContent={<PanelBContent targetRef={targetRef} />}
     />
   );
 }
 
-
-
-const PanelAContent = memo(() => {
+const PanelAContent = memo(({ targetRef }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isNavHovered,setIsNavHovered] = useState(false);
   const [isNavItemHovered,setIsItemNavHovered] = useState(false);
@@ -140,6 +144,9 @@ const PanelAContent = memo(() => {
     "Company",
     "Contact us",
   ];
+  const handleScroll = () => {
+    targetRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -169,7 +176,6 @@ const PanelAContent = memo(() => {
               className={styles.navbar_item}
               style={{ color: isNavHovered ? "black" : "white" }}
               onMouseEnter={() => setIsItemNavHovered(true)}
-              onMouseLeave={() => setIsItemNavHovered(false)}
             >
               <span style={{ fontWeight: isNavHovered ? 900 : 400 }}>{item}</span>
               {!isNavHovered ? <FaAngleDown /> : <div style={{ width: 12 }} />}
@@ -177,20 +183,28 @@ const PanelAContent = memo(() => {
           ))}
         </div>
         {isNavItemHovered &&
-          <div className={styles.navbar_info_container}>
+          <div className={styles.navbar_info_container}
+            onMouseLeave={() => setIsItemNavHovered(false)}
+          >
             <div className={styles.trapezoid}>
               <img src={trapImg} loading='lazy' style={{objectFit:"cover",height:"100%",width:"100%"}}/>
             </div>
-            <div style={{display:"flex",flexDirection:"row"}}>
-              <VerticalDivider thickness='1px' color='gray'/>
-              <div style={{display:"flex",flexDirection:"column"}}>
-                <span style={{color:'black',fontSize:20}}>item 1 </span>
-                <span style={{color:'black',fontSize:20}}>item 2 </span>
-                <span style={{color:'black',fontSize:20}}>item 3 </span>
-                <span style={{color:'black',fontSize:20}}>item 4 </span>
+            <div style={{display:"flex",flexDirection:"row"}} className={styles.slide_in}>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ color: 'gray', fontSize: 20 }}>Company</span>
+              
+              <div style={{display:"flex",flexDirection:"row"}}>
+                <VerticalDivider thickness='1px' color='gray' height='40px' />
+                <div style={{ display: 'flex', flexDirection: 'column',marginLeft:20}}>
+                  <span style={{ color: 'black', fontSize: 20 }}>item 1</span>
+                  <span style={{ color: 'black', fontSize: 20 }}>item 2</span>
+                  <span style={{ color: 'black', fontSize: 20 }}>item 3</span>
+                  <span style={{ color: 'black', fontSize: 20 }}>item 4</span>
+                </div>
               </div>
+              
             </div>
-
+            </div>
           </div>
         }
 
@@ -223,6 +237,7 @@ const PanelAContent = memo(() => {
               }}
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onClick={handleScroll}
             >
               <IoSettingsSharp style={{color: hoveredIndex === idx ? "rgb(0, 114, 245)" : "white",height:40,width:40}}/>
                 <h5 className="card-title" style={{color: hoveredIndex === idx ? "black" : "white"}}>{card.title}</h5>
@@ -244,7 +259,7 @@ const PanelAContent = memo(() => {
 });
 
 
-const PanelBContent = memo(() => {
+const PanelBContent = memo(({ targetRef }) => {
   const [isMorePressed, setPress] = useState(false);
   
   return (
@@ -280,8 +295,8 @@ const PanelBContent = memo(() => {
 
         <button className={styles.button_div1}>See what Intellectsoft can do for you</button>
       </div>
-
-      <div className={styles.div2}>
+      
+      <div className={styles.div2} ref={targetRef}>
         {/* Inlined Clients */}
         <div style={{ marginTop: 100 }}> 
             <span>Our Clients</span>
@@ -314,9 +329,9 @@ const PanelBContent = memo(() => {
         )}
       </div>
 
-      <div className={styles.div3}>
+      <div className={styles.div3} >
         <div style={{ marginTop: 100 }}> 
-            <span>Intelligent Software Solutions</span>
+            <span >Intelligent Software Solutions</span>
             <hr className={styles.divider} />
         </div>
         <div className={styles.div1_cards}>
