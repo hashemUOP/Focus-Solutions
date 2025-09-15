@@ -92,9 +92,31 @@ const PanelAContent = memo(({ targetRef }) => {
 });
 
 
-const PanelBContent = memo(({ targetRef }) => {
+const PanelBContent = memo(({ targetRef, requestMeasure }) => {
   const [isMorePressed, setPress] = useState(false);
-  
+
+  // When isMorePressed toggles, ask parent to re-measure on the next frame
+  useEffect(() => {
+    if (typeof requestMeasure === "function") {
+      requestAnimationFrame(() => requestMeasure());
+    }
+  }, [isMorePressed, requestMeasure]);
+
+  // Called when "See More" is pressed
+  const handleSeeMore = () => {
+    setPress(true);
+    if (typeof requestMeasure === "function") {
+      requestAnimationFrame(() => requestMeasure());
+    }
+  };
+
+  // Called when any image finishes loading to ensure measurement is accurate
+  const handleImgLoad = () => {
+    if (typeof requestMeasure === "function") {
+      requestAnimationFrame(() => requestMeasure());
+    }
+  };
+
   return (
     <div>
       <div className={styles.div1}>
@@ -102,7 +124,12 @@ const PanelBContent = memo(({ targetRef }) => {
           Why Choose Intellectsoft as Your Custom Software Development Partner?
         </span>
         <span className={styles.span2}>
-          Leading software development company. With over 17 years of market experience. Present in 20 countries. Our development team drives excellence, ensuring we deliver exactly what your business needs. Trusted by Fortune 500 giants like Intel, Luxottica, Jaguar Land Rover, and Guinness, bold mid-sized companies, and ambitious startups..
+          Leading software development company. With over 17 years of market
+          experience. Present in 20 countries. Our development team drives
+          excellence, ensuring we deliver exactly what your business needs.
+          Trusted by Fortune 500 giants like Intel, Luxottica, Jaguar Land
+          Rover, and Guinness, bold mid-sized companies, and ambitious
+          startups..
         </span>
 
         {/* Inlined Cards */}
@@ -113,8 +140,9 @@ const PanelBContent = memo(({ targetRef }) => {
                 src={card.image}
                 className="card-img-top"
                 alt={card.title}
-                style={{width: 50, height: 50, margin: 10}}
+                style={{ width: 50, height: 50, margin: 10 }}
                 loading="lazy"
+                onLoad={handleImgLoad}
               />
               <div className="card-body">
                 <h5 className="card-title">{card.title}</h5>
@@ -125,14 +153,19 @@ const PanelBContent = memo(({ targetRef }) => {
             </div>
           ))}
         </div>
-        <button className={styles.button_div1}>See what Intellectsoft can do for you</button>
+
+        <button className={styles.button_div1}>
+          See what Intellectsoft can do for you
+        </button>
       </div>
-      <div className={styles.div2} >
+
+      <div className={styles.div2}>
         {/* Inlined Clients */}
-        <div style={{ marginTop: 100 }}> 
-            <span>Our Clients</span>
-            <hr className={styles.divider} />
+        <div style={{ marginTop: 100 }}>
+          <span>Our Clients</span>
+          <hr className={styles.divider} />
         </div>
+
         <div className={styles.div2_first_col}>
           <div className={styles.div2_second_col}>
             {columns.map((col, i) => (
@@ -146,6 +179,7 @@ const PanelBContent = memo(({ targetRef }) => {
                       alt="logo"
                       loading="lazy"
                       className={styles.div2_col_img}
+                      onLoad={handleImgLoad}
                     />
                   ))}
               </div>
@@ -154,18 +188,19 @@ const PanelBContent = memo(({ targetRef }) => {
         </div>
 
         {!isMorePressed && (
-          <button className={styles.div2_button} onClick={() => setPress(true)}>
+          <button className={styles.div2_button} onClick={handleSeeMore}>
             See More
           </button>
         )}
       </div>
 
-      <div className={styles.div3} >
-        <div style={{ marginTop: 100 }}> 
-            <span ref={targetRef}>Intelligent Software Solutions</span>
-            <hr className={styles.divider} />
+      <div className={styles.div3}>
+        <div style={{ marginTop: 100 }}>
+          <span ref={targetRef}>Intelligent Software Solutions</span>
+          <hr className={styles.divider} />
         </div>
-        <div className={styles.div1_cards} >
+
+        <div className={styles.div1_cards}>
           {cards_info.map((card, idx) => (
             <div key={idx} className={`${"card"} ${styles.card}`}>
               <img
@@ -174,6 +209,7 @@ const PanelBContent = memo(({ targetRef }) => {
                 alt={card.title}
                 style={{ width: 50, height: 50, margin: 10 }}
                 loading="lazy"
+                onLoad={handleImgLoad}
               />
               <div className="card-body">
                 <h5 className="card-title">{card.title}</h5>
@@ -184,6 +220,7 @@ const PanelBContent = memo(({ targetRef }) => {
             </div>
           ))}
         </div>
+
         <div className={styles.div1_cards}>
           {cards_info.map((card, idx) => (
             <div key={idx} className={`${"card"} ${styles.card}`}>
@@ -193,6 +230,7 @@ const PanelBContent = memo(({ targetRef }) => {
                 alt={card.title}
                 style={{ width: 50, height: 50, margin: 10 }}
                 loading="lazy"
+                onLoad={handleImgLoad}
               />
               <div className="card-body">
                 <h5 className="card-title">{card.title}</h5>
@@ -203,6 +241,7 @@ const PanelBContent = memo(({ targetRef }) => {
             </div>
           ))}
         </div>
+
         <div className={styles.div1_cards}>
           {cards_info.map((card, idx) => (
             <div key={idx} className={`${"card"} ${styles.card}`}>
@@ -212,6 +251,7 @@ const PanelBContent = memo(({ targetRef }) => {
                 alt={card.title}
                 style={{ width: 50, height: 50, margin: 10 }}
                 loading="lazy"
+                onLoad={handleImgLoad}
               />
               <div className="card-body">
                 <h5 className="card-title">{card.title}</h5>
@@ -223,15 +263,18 @@ const PanelBContent = memo(({ targetRef }) => {
           ))}
         </div>
       </div>
+      <div className={styles.div4}>4</div>
       <div className={styles.div5}>5</div>
       <div className={styles.div6}>6</div>
       <div className={styles.div7}>7</div>
       <div className={styles.div8}>8</div>
       <div className={styles.div9}>9</div>
-      <div className={styles.div10}>
-        10
+      <div
+        className={styles.div10}
+        style={{ height: 300, width: "100vw"}}
+      >
+        <Footer />
       </div>
-      <div className={styles.div4} style={{height:300,width:'100vw',backgroundColor:"orange"}}><Footer/></div>
     </div>
   );
 });

@@ -1,25 +1,39 @@
-import React, { useEffect, useState } from "react";
+// SlideAnime.jsx
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import styles from "../styles/try.module.css";
 
 export default function SlideAnime({ PanelAContent, PanelBContent }) {
   const [sliderValue, setSliderValue] = useState(0); // 0..100
   const [progress, setProgress] = useState(0); // 0..1
 
-  //this code is important as it assures that the .container has the same height as the panel B
-  useEffect(() => {
-  const container = document.querySelector(`.${styles.container}`);
-  const panelB = document.querySelector(`.${styles.panelB}`);
+  // refs for reliable DOM measurement
+  const containerRef = useRef(null);
+  const panelBRef = useRef(null);
 
-  if (container && panelB) {
-    const updateHeight = () => {
-      container.style.height = `${panelB.offsetHeight}px`;
-    };
-    updateHeight();
+  // updateHeight function (available to callers)
+  const updateHeight = () => {
+    if (!containerRef.current || !panelBRef.current) return;
+    containerRef.current.style.height = `${panelBRef.current.offsetHeight}px`;
+  };
+
+  // measure synchronously after DOM updates but before paint
+  useLayoutEffect(() => {
+    // initial measure (defer one frame to be safe)
+    requestAnimationFrame(updateHeight);
+
+    // re-measure on window resize and on a custom event
     window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
-  }
+    // optional: listen for a custom event "panelB:resized" (see below quick-hack)
+    window.addEventListener("panelB:resized", updateHeight);
+
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      window.removeEventListener("panelB:resized", updateHeight);
+    };
+    // no deps: measuring will be triggered by children via requestMeasure or events
   }, []);
 
+  // scroll progress logic (unchanged)
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -41,34 +55,32 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // callback passed to child so it can request parent to re-measure
+  const requestMeasure = () => {
+    // measure next frame to ensure DOM/layout is settled
+    requestAnimationFrame(updateHeight);
+  };
+
+  // If PanelBContent is a React element, inject requestMeasure prop.
+  const injectedPanelBContent = React.isValidElement(PanelBContent)
+    ? React.cloneElement(PanelBContent, { requestMeasure })
+    : PanelBContent;
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
       {/* Panel A */}
-      <div className={styles.panelA}>
+      <section className={styles.panelA}>
         {PanelAContent}
-      </div>
+      </section>
 
       {/* Panel B */}
-      <div
+      <section
+        ref={panelBRef}
         className={styles.panelB}
         style={{ transform: `translateY(-${progress * 100}vh)` }}
       >
-        {PanelBContent}
-      </div>
-
-      {/* Slider UI
-      <div className={styles.sliderWrap}>
-        <label className={styles.sliderLabel}>Cover</label>
-        <input
-          className={styles.slider}
-          type="range"
-          min="0"
-          max="100"
-          value={sliderValue}
-          onChange={onSliderChange}
-        />
-      </div> */}
+        {injectedPanelBContent}
+      </section>
     </div>
   );
 }
