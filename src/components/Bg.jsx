@@ -1,7 +1,7 @@
 // import React, { lazy, Suspense, memo } from "react";
 import React,{memo} from "react";
 import styles from "../styles/home.module.css";
-import bgImg from "../assets/images/home/bg/creepy-old-factory-with-dark-rusted-machinery-eerie-silence_636537-427296.jpg";
+import bgImg from "../assets/images/home/bg/pexels-skyriusmarketing-2129796.webp";
 
 // const SplineLazy = lazy(() => import("@splinetool/react-spline"));
 
