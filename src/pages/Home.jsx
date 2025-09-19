@@ -9,6 +9,7 @@ import { cards_info, cards_info2, columns, reviewsData } from '../data/HomeData'
 import CardSwiper from '../components/CardSwiper';
 import { LiaStarSolid } from "react-icons/lia";
 import ClientsSuccess from '../components/ClientSuccess';
+import Reviews from '../components/Reviews';
 
 // import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
 
@@ -285,64 +286,7 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
           ))}
         </div>  
       </div>
-      {/* Reviews (FeedBack) */}
-      <div style={{ display: "flex", flexDirection: "column", backgroundColor: 'rgb(250, 250, 250)', paddingTop: "100px", paddingBottom: "100px" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ alignSelf: "center" }}>Reviews (FeedBack)</span>
-          <hr className={styles.divider} style={{ margin: "1px 600px", marginBottom: "20px" }} />
-        </div>
-
-        {/* WRAPPER: holds the scroll viewport and the two overlay blurs */}
-        <div className={styles.div5Wrapper}>
-          {/* left overlay blur */}
-          <div className={styles.clutchReviewsStartblur}></div>
-
-          {/* scrollable row */}
-          <div className={styles.div5}>
-            {reviewsData.map((review, index) => (
-              <div key={index} className={styles.div5_review_card}>
-                <img src={review.imageLeft} loading="lazy" alt="quote left" />
-                <img src={review.imageRight} loading="lazy" alt="quote right" />
-
-                <div className={styles.div5_review_card_column}>
-                  <div className={styles.div5_review_card_text_column}>
-                    <span style={{ fontSize: 16, padding: "0px 80px", fontWeight: 400 }}>
-                      {review.short}
-                    </span>
-                    <span style={{ fontSize: 16, padding: "0px 80px", fontWeight: 300 }}>
-                      {review.long}
-                    </span>
-                  </div>
-                  <div className={styles.div5_review_card_info_column}>
-                    <span style={{ fontSize: 18, fontWeight: 600 }}>{review.rank}</span>
-                    <span style={{ fontSize: 14, fontWeight: 500, color: "grey" }}>{review.writer}</span>
-                    <span style={{ fontSize: 14, fontWeight: 500, color: "grey", display: "flex", gap: 10, alignItems: "center" }}>
-                      <img width="20px" height="20px" src={review.flag_location} alt="flag" />
-                      {review.location}
-                    </span>
-                    <div className={styles.review_rating}>
-                      <span style={{ display: "flex", alignItems: "center" }}>5.0</span>
-                      <span className={styles.review_stars}>
-                        {[...Array(5)].map((_, i) => <LiaStarSolid key={i} />)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* right overlay blur */}
-          <div className={styles.clutchReviewsEndblur}></div>
-          <div style={{display:"flex",flexDirection:"row",width:"100%",height:"10px",justifySelf:"center",justifyContent:"center",gap:"10px",paddingTop:"50px"}}>
-            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
-            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
-            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
-            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
-            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
-          </div>
-        </div>
-      </div>
+      <Reviews/>
 
       <div className={styles.div4}>
         <ClientsSuccess />
