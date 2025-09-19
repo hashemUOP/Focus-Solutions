@@ -10,6 +10,7 @@ import CardSwiper from '../components/CardSwiper';
 import { LiaStarSolid } from "react-icons/lia";
 import Partners from '../components/Partners';
 import Reviews from '../components/Reviews';
+import Awards from '../components/Awards';
 
 // import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
 
@@ -291,7 +292,13 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
       <div className={styles.div4}>
         <Partners />
       </div>
-      <div className={styles.div6}>Awards & Recognition</div>
+      <div className={styles.div6} style={{backgroundColor:"white"}}>
+        <div style={{ margin:'75px 0px'}}>
+          <span>Awards & Recognition</span>
+          <hr className={styles.divider} />
+        </div>
+        <Awards/>
+      </div>
       <div className={styles.div7}>
         Contact us
       </div>
