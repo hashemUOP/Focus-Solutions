@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import { cards_info, cards_info2, columns, reviewsData } from '../data/HomeData';
 import CardSwiper from '../components/CardSwiper';
 import { LiaStarSolid } from "react-icons/lia";
-import ClientsSuccess from '../components/ClientSuccess';
+import Partners from '../components/Partners';
 import Reviews from '../components/Reviews';
 
 // import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
@@ -286,18 +286,19 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
           ))}
         </div>  
       </div>
+      {/* div 5 inside Reviews */}
       <Reviews/>
-
       <div className={styles.div4}>
-        <ClientsSuccess />
+        <Partners />
       </div>
-      <div className={styles.div6}>about us / mission</div>
-      <div className={styles.div7}>Success Stories
+      <div className={styles.div6}>Awards & Recognition</div>
+      <div className={styles.div7}>
+        Contact us
       </div>
       <div className={styles.div8}>
-        8
+        
       </div>
-      <div className={styles.div9}>9</div>
+      <div className={styles.div9}></div>
       <div
         className={styles.div10}
         style={{ height: 300, width: "100vw" }}
