@@ -18,6 +18,7 @@
 
 
 
+
 /* 2️⃣ Slide-in from Left/Right */
 /* Change translateX(-50px) → translateX(50px) for sliding in from right. */
 .slide-in {
@@ -47,3 +48,6 @@
     transform: scale(1);
   }
 }
+
+
+

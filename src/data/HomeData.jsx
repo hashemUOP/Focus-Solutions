@@ -21,6 +21,11 @@ import logo20 from '../assets/images/home/logos/standard-chartered-removebg-prev
 import logo21 from '../assets/images/home/logos/who-removebg-preview.webp';
 import logo22 from '../assets/images/home/logos/Zain_(Unternehmen)_logo.svg.webp';
 import logo23 from '../assets/images/home/logos/بنك-الخرطوم-السودان-removebg-preview.webp';
+import { MdDescription } from 'react-icons/md';
+import { BiCategory } from 'react-icons/bi';
+import { CiBank } from "react-icons/ci";
+
+import swiperImage from '../assets/images/home/swiper/venice-3183168_640.webp';
 
 export const columns = [
   [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo23],
@@ -59,50 +64,168 @@ export const cards_info = [
 export const cards_info2 = [
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/1.svg',
-    title: 'Custom',
+    title: 'Banking Solutions',
     content:
-      'Designing solutions that perfectly align with your vision and needs. Leveraging the latest technologies to bring your ideas to life. No matter how ambitious they are.',
+      [
+        'Risk Management',
+        'Remedial Management',
+        'Reconciliation'
+      ]
   },
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/7.svg',
-    title: 'Dedicated',
+    title: 'Artificial Intellegence',
     content:
-      'Experience the power of a dedicated development team. Our experts dive deep into every aspect of your project, delivering exceptional quality',
+    [
+      'Ai Agents',
+      "Machine Learning",
+      "ChatBots"
+    ]
   },
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/11.svg',
-    title: 'Adaptable',
+    title: 'ERP Services',
     content:
-      'Choose an engagement model that fits your business. Our flexible approach ensures our partnership aligns with your specific goals, budget, and objectives',
+      [
+        "Mobile Applications",
+        "Web Applications",
+        "Rapid Prototyping",
+        "Erp Applications"
+      ]
   },
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/2.svg',
-    title: 'Agile',
+    title: 'Process Automation',
     content:
-      'Receive high-quality, user-centered solutions on time. We ensure your project meets expectations and drives satisfaction for both your clients and end-users',
+      [
+        "Automated Workflows",
+        "Human Supervised Workflows",
+        "System Integration",
+      ]
+  },
+  {
+    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/7.svg',
+    title: 'Consultation and Training',
+    content:
+      [
+        "Business Analysis",
+        "Risk Management",
+        "Project Management",
+        "Compliance",
+        "Digital Transformation"
+      ]
   },
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/1.svg',
-    title: 'Custom',
+    title: 'Outsourcing Services',
     content:
-      'Designing solutions that perfectly align with your vision and needs. Leveraging the latest technologies to bring your ideas to life. No matter how ambitious they are.',
-  },
-  {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/7.svg',
-    title: 'Dedicated',
-    content:
-      'Experience the power of a dedicated development team. Our experts dive deep into every aspect of your project, delivering exceptional quality',
+      [
+        "Consultants",
+        "Project Managers",
+        "Expert developers",
+        "Testing and Assurance",
+        "Accounting and Auditing",
+      ]
   },
   {
     image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/11.svg',
-    title: 'Adaptable',
+    title: 'Cloud Solutions',
     content:
-      'Choose an engagement model that fits your business. Our flexible approach ensures our partnership aligns with your specific goals, budget, and objectives',
+      [
+        'Dedicated Servers',
+        'Virtual Servers',
+      ]
+  },
+];
+
+export const slidesData=[
+  {
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/2.svg',
-    title: 'Agile',
-    content:
-      'Receive high-quality, user-centered solutions on time. We ensure your project meets expectations and drives satisfaction for both your clients and end-users',
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
+  },
+  {
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
+  },
+  {
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
+  },
+  {
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
+  },
+  {
+    imgSrc:swiperImage,
+    title: "Venice: The Floating City",
+    description: "Canals, gondolas, and timeless Italian charm",
+    categories:["Travel","History"]
+  },
+];
+
+export const reviewsData=[
+  {
+    imageLeft:"https://img.icons8.com/ios-filled/100/228BE6/quote-left.png",
+    imageRight:"https://img.icons8.com/ios-filled/50/228BE6/quote-right.png",
+    short:"They understood the requirements of the task quickly...",
+    long:"Intellectsoft is complimented for bringing their development insight to the table,understanding the requirements quickly,and delivering an app on time/budget with a design that has satisfied all stakeholders.",
+    rank:"SE Ranking",
+    writer:"Julia Karnaukh, Head of Marketing",
+    flag_location:"https://img.icons8.com/office/40/usa.png",
+    location:"Palo Alto, California"
+  },
+  {
+    imageLeft:"https://img.icons8.com/ios-filled/100/228BE6/quote-left.png",
+    imageRight:"https://img.icons8.com/ios-filled/50/228BE6/quote-right.png",
+    short:"They understood the requirements of the task quickly...",
+    long:"Intellectsoft is complimented for bringing their development insight to the table,understanding the requirements quickly,and delivering an app on time/budget with a design that has satisfied all stakeholders.",
+    rank:"SE Ranking",
+    writer:"Julia Karnaukh, Head of Marketing",
+    flag_location:"https://img.icons8.com/office/40/usa.png",
+    location:"Palo Alto, California"
+  },
+  {
+    imageLeft:"https://img.icons8.com/ios-filled/100/228BE6/quote-left.png",
+    imageRight:"https://img.icons8.com/ios-filled/50/228BE6/quote-right.png",
+    short:"They understood the requirements of the task quickly...",
+    long:"Intellectsoft is complimented for bringing their development insight to the table,understanding the requirements quickly,and delivering an app on time/budget with a design that has satisfied all stakeholders.",
+    rank:"SE Ranking",
+    writer:"Julia Karnaukh, Head of Marketing",
+    flag_location:"https://img.icons8.com/office/40/usa.png",
+    location:"Palo Alto, California"
+  },
+  {
+    imageLeft:"https://img.icons8.com/ios-filled/100/228BE6/quote-left.png",
+    imageRight:"https://img.icons8.com/ios-filled/50/228BE6/quote-right.png",
+    short:"They understood the requirements of the task quickly...",
+    long:"Intellectsoft is complimented for bringing their development insight to the table,understanding the requirements quickly,and delivering an app on time/budget with a design that has satisfied all stakeholders.",
+    rank:"SE Ranking",
+    writer:"Julia Karnaukh, Head of Marketing",
+    flag_location:"https://img.icons8.com/office/40/usa.png",
+    location:"Palo Alto, California"
+  },
+  {
+    imageLeft:"https://img.icons8.com/ios-filled/100/228BE6/quote-left.png",
+    imageRight:"https://img.icons8.com/ios-filled/50/228BE6/quote-right.png",
+    short:"They understood the requirements of the task quickly...",
+    long:"Intellectsoft is complimented for bringing their development insight to the table,understanding the requirements quickly,and delivering an app on time/budget with a design that has satisfied all stakeholders.",
+    rank:"SE Ranking",
+    writer:"Julia Karnaukh, Head of Marketing",
+    flag_location:"https://img.icons8.com/office/40/usa.png",
+    location:"Palo Alto, California"
   },
 ];

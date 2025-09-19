@@ -1,16 +1,20 @@
-import React, { useState, Suspense, memo,useEffect,useRef} from 'react';
+import React, { useState, Suspense, memo, useEffect, useRef } from 'react';
 import AutoRefreshComponent from '../components/Bg';
 import Footer from '../components/Footer';
 import styles from '../styles/home.module.css';
 import SlideAnime from './SlideAnime';
 import { IoSettingsSharp } from "react-icons/io5";
 import NavBar from '../components/NavBar';
-import {cards_info,cards_info2,columns} from '../data/HomeData';
+import { cards_info, cards_info2, columns, reviewsData } from '../data/HomeData';
+import CardSwiper from '../components/CardSwiper';
+import { LiaStarSolid } from "react-icons/lia";
+import ClientsSuccess from '../components/ClientSuccess';
 
+// import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
 
 
 export default function Home() {
-  
+
   const targetRef = useRef(null);
   useEffect(() => {
     return () => {
@@ -43,42 +47,60 @@ const PanelAContent = memo(({ targetRef }) => {
 
   return (
     <>
-      <AutoRefreshComponent/>
+      <AutoRefreshComponent />
       {/* navbar here */}
-      <NavBar/>
-      <div className={styles.panelA_Content_container}>
+      <NavBar />
+      <div className={[styles.panelA_Content_container,]}>
         <h1>Build Bespoke Software Solution for Your Business Growth</h1>
         <p style={{ fontWeight: 300, fontSize: 18, paddingRight: 50 }}>
           From innovative startups
         </p>
-        <div
-          style={{
-            display: "flex",
-            gap: "12px",              
-            marginTop: 50,
-            width: "100%",           
-            justifyContent: "flex-start",
-            flexWrap: "wrap",         
-          }}
-        >
+        <div className={styles.panelA_cards_container}>
           {cards_info2.map((card, idx) => (
             <div
               key={idx}
               className={styles.panelA_card}
               style={{
-                backgroundColor:hoveredIndex === idx ? "white" : "rgba(255,255,255,0.06)",
+                backgroundColor: hoveredIndex === idx ? "white" : "rgba(255,255,255,0.06)",
               }}
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={handleScroll}
             >
-              <IoSettingsSharp style={{color: hoveredIndex === idx ? "rgb(0, 114, 245)" : "white",height:40,width:40}}/>
-                <h5 className="card-title" style={{color: hoveredIndex === idx ? "black" : "white"}}>{card.title}</h5>
-              </div>
+              {/* show icon & title only when NOT hovered */}
+              {hoveredIndex !== idx && (
+                <>
+                  <IoSettingsSharp
+                    style={{
+                      color: "white",
+                      height: 40,
+                      width: 40,
+                      marginBottom: 10,
+                    }}
+                  />
+                  <h5
+                    className="card-title"
+                    style={{ color: "white", marginBottom: 10 }}
+                  >
+                    {card.title}
+                  </h5>
+                </>
+              )}
+              {/* show content only when hovered */}
+              {hoveredIndex === idx && (
+                <div style={{ padding: "0 20px", color: "black", display: "flex", flexDirection: "column", gap: 4 }}>
+                  {card.content.map((item, i) => (
+                    <span key={i} style={{ fontSize: 15, fontWeight: 400 }}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
-        <div className= {styles.panelA_buttons_container}>
+        <div className={styles.panelA_buttons_container}>
           <button className={styles.panelA_button_one}>
             Book a free consultation
           </button>
@@ -261,17 +283,80 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
               </div>
             </div>
           ))}
+        </div>  
+      </div>
+      {/* Reviews (FeedBack) */}
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: 'rgb(250, 250, 250)', paddingTop: "100px", paddingBottom: "100px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ alignSelf: "center" }}>Reviews (FeedBack)</span>
+          <hr className={styles.divider} style={{ margin: "1px 600px", marginBottom: "20px" }} />
+        </div>
+
+        {/* WRAPPER: holds the scroll viewport and the two overlay blurs */}
+        <div className={styles.div5Wrapper}>
+          {/* left overlay blur */}
+          <div className={styles.clutchReviewsStartblur}></div>
+
+          {/* scrollable row */}
+          <div className={styles.div5}>
+            {reviewsData.map((review, index) => (
+              <div key={index} className={styles.div5_review_card}>
+                <img src={review.imageLeft} loading="lazy" alt="quote left" />
+                <img src={review.imageRight} loading="lazy" alt="quote right" />
+
+                <div className={styles.div5_review_card_column}>
+                  <div className={styles.div5_review_card_text_column}>
+                    <span style={{ fontSize: 16, padding: "0px 80px", fontWeight: 400 }}>
+                      {review.short}
+                    </span>
+                    <span style={{ fontSize: 16, padding: "0px 80px", fontWeight: 300 }}>
+                      {review.long}
+                    </span>
+                  </div>
+                  <div className={styles.div5_review_card_info_column}>
+                    <span style={{ fontSize: 18, fontWeight: 600 }}>{review.rank}</span>
+                    <span style={{ fontSize: 14, fontWeight: 500, color: "grey" }}>{review.writer}</span>
+                    <span style={{ fontSize: 14, fontWeight: 500, color: "grey", display: "flex", gap: 10, alignItems: "center" }}>
+                      <img width="20px" height="20px" src={review.flag_location} alt="flag" />
+                      {review.location}
+                    </span>
+                    <div className={styles.review_rating}>
+                      <span style={{ display: "flex", alignItems: "center" }}>5.0</span>
+                      <span className={styles.review_stars}>
+                        {[...Array(5)].map((_, i) => <LiaStarSolid key={i} />)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* right overlay blur */}
+          <div className={styles.clutchReviewsEndblur}></div>
+          <div style={{display:"flex",flexDirection:"row",width:"100%",height:"10px",justifySelf:"center",justifyContent:"center",gap:"10px",paddingTop:"50px"}}>
+            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
+            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
+            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
+            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
+            <div style={{width:"67px",height:"3px",backgroundColor:"lightgray",borderRadius:"3px"}}/>
+          </div>
         </div>
       </div>
-      <div className={styles.div4}>4</div>
-      <div className={styles.div5}>5</div>
-      <div className={styles.div6}>6</div>
-      <div className={styles.div7}>7</div>
-      <div className={styles.div8}>8</div>
+
+      <div className={styles.div4}>
+        <ClientsSuccess />
+      </div>
+      <div className={styles.div6}>about us / mission</div>
+      <div className={styles.div7}>Success Stories
+      </div>
+      <div className={styles.div8}>
+        8
+      </div>
       <div className={styles.div9}>9</div>
       <div
         className={styles.div10}
-        style={{ height: 300, width: "100vw"}}
+        style={{ height: 300, width: "100vw" }}
       >
         <Footer />
       </div>
