@@ -11,7 +11,7 @@ import { LiaStarSolid } from "react-icons/lia";
 import Partners from '../components/Partners';
 import Reviews from '../components/Reviews';
 import Awards from '../components/Awards';
-
+import ContactSection from '../components/ContactSection';
 // import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
 
 
@@ -72,14 +72,18 @@ const PanelAContent = memo(({ targetRef }) => {
               {/* show icon & title only when NOT hovered */}
               {hoveredIndex !== idx && (
                 <>
-                  <IoSettingsSharp
-                    style={{
-                      color: "white",
-                      height: 40,
-                      width: 40,
-                      marginBottom: 10,
-                    }}
-                  />
+                  {/* Render the icon from your card object */}
+                  {card.Icon && (
+                    <card.Icon
+                      style={{
+                        color: "white",
+                        height: 40,
+                        width: 40,
+                        marginBottom: 10,
+                      }}
+                    />
+                  )}
+
                   <h5
                     className="card-title"
                     style={{ color: "white", marginBottom: 10 }}
@@ -88,6 +92,7 @@ const PanelAContent = memo(({ targetRef }) => {
                   </h5>
                 </>
               )}
+
               {/* show content only when hovered */}
               {hoveredIndex === idx && (
                 <div style={{ padding: "0 20px", color: "black", display: "flex", flexDirection: "column", gap: 4 }}>
@@ -299,13 +304,22 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
         </div>
         <Awards/>
       </div>
-      <div className={styles.div7}>
-        Contact us
+      <div
+        className={styles.div7}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          height: 813,
+          width: '100%',
+          background: 'linear-gradient(135deg, #0f7be6 0%, #1ea1ff 100%)',
+          padding:"0px 50px"
+        }}
+      >
+        <ContactSection/>
       </div>
-      <div className={styles.div8}>
-        
-      </div>
-      <div className={styles.div9}></div>
+      {/* <div className={styles.div8}></div>
+      <div className={styles.div9}></div> */}
       <div
         className={styles.div10}
         style={{ height: 300, width: "100vw" }}

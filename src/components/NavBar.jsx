@@ -24,7 +24,7 @@ function NavBar() {
         <div
             className={styles.navbar}
             onMouseEnter={() => setIsNavHovered(true)}
-            onMouseLeave={() => {setIsNavHovered(false);setIsItemNavHovered(false);}}
+            onMouseLeave={() => {setIsNavHovered(false);setIsItemNavHovered(false);setLastItemHoveredIndex(null);}}
         >
             {/* Logo */}
             <div className={styles.logo_navbar}>
@@ -45,13 +45,13 @@ function NavBar() {
                     key={idx}
                     className={styles.navbar_item}
                     style={{
-                        color: hoveredIndex === idx ? "rgb(60, 82, 97)" : "black",
+                        color: lastItemHoveredIndex === idx ? "rgb(0, 114, 245)" : "black",
                         cursor: "pointer",
                     }}
                     onMouseEnter={() => {setHoveredIndex(idx);setIsItemNavHovered(true);setLastItemHoveredIndex(idx);}}
-                    onMouseLeave={() => setHoveredIndex(null)}
+                    onMouseLeave={() => {setHoveredIndex(null);}}
                     >
-                    <span style={{ fontWeight: hoveredIndex === idx ? 900 : 400 }}>
+                    <span style={{ fontWeight: lastItemHoveredIndex === idx ? 900 : 400 }}>
                         {item}
                     </span>
                     {!isNavHovered ? <FaAngleDown /> : <div style={{ width: 12 }} />}

@@ -1,223 +1,132 @@
-import React from "react";
-import styles from "../home/styles.module.css";
+import React, { useState } from 'react'
+import styles from '../styles/contact.module.css';
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import { GrAttachment } from "react-icons/gr";
+import { steps } from '../data/HomeData';
 
-export default function ContactSection() {
+function ContactSection() {
+  const [phone, setPhone] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Phone submitted:", phone);
+  };
   return (
-    <section id="contactSection" className={styles.nContactsSection}>
-      <div className={styles.container}>
-        <div className={styles.contactSection}>
-          <div id="formWrap" className={styles.formWrapFlexbox}>
-            <form
-              autoComplete="off"
-              id="formContacts"
-              className={`${styles.form} ${styles.formContact} ${styles.formContactRating} ${styles.contactForm} ${styles.contactMeAbout}`}
-              action="#"
-              method="post"
-              encType="multipart/form-data"
-              data-handler=""
-              data-form-id="contacts-col-3"
-              data-type="ContactForm"
-              data-id="98b78903-c3fa-45fe-9a4e-b57d7e95e4c9"
-              data-url="//traccoon.intellectsoft.net/forms/intellectsoft/contacts"
-            >
-              <h2>Contact Us</h2>
-
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="name">
-                  First Name*
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  className={styles.formControl}
-                  name="name"
-                  maxLength="255"
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="lastName">
-                  Last Name*
-                </label>
-                <input
-                  id="lastName"
-                  type="text"
-                  className={styles.formControl}
-                  name="last_name"
-                  maxLength="255"
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="email">
-                  Business Email*
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  className={styles.formControl}
-                  name="email"
-                  maxLength="255"
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="alternativeEmail">
-                  Alternative Email
-                </label>
-                <input
-                  type="text"
-                  id="alternativeEmail"
-                  className={styles.formControl}
-                  name="alternative_email"
-                  maxLength="255"
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <input
-                  type="text"
-                  id="phoneNumber"
-                  className={styles.formControl}
-                  name="phone"
-                  maxLength="50"
-                />
-                <input id="country" name="country" type="hidden" value="" />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="company">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  className={styles.formControl}
-                  name="company"
-                  maxLength="255"
-                />
-              </div>
-
-              <div className={`${styles.formGroup} ${styles.formGroupDescription}`}>
-                <label className={styles.label} htmlFor="description">
-                  Tell us about your project
-                </label>
-                <textarea
-                  className={styles.formTextarea}
-                  id="description"
-                  name="description"
-                  maxLength="65535"
-                ></textarea>
-                <div className={styles.formFooter}>
-                  <div
-                    className={`${styles.formGroup} ${styles.uploadWrapper} ${styles.jsEmptyFiles}`}
-                  >
-                    <input type="file" id="attach" name="attach" data-label="Attach file" />
-                    <button className={styles.clearAttach}>x</button>
-                    <label
-                      className={`${styles.uploadLabel} ${styles.uploadLabelWhite}`}
-                      htmlFor="attach"
-                    >
-                      <span className={styles.uploadedText}>
-                        <i className={styles.isoiPaperClip}></i>
-                        Attach file
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`${styles.formGroup} ${styles.noValidationIcon}`}>
-                <input type="hidden" name="send_nda" value="0" />
-                <input
-                  type="checkbox"
-                  id="sendNda"
-                  className={styles.formCheckbox}
-                  name="send_nda"
-                  value="0"
-                />
-                <label className={styles.formCheckboxLabel} htmlFor="sendNda">
-                  Request an NDA
-                </label>
-              </div>
-
-              <div className={`${styles.formGroup} ${styles.privacyText}`}>
-                By sending this form I confirm that I have read and accept Intellectsoft{" "}
-                <a href="https://www.intellectsoft.net/privacy-policy">Privacy Policy</a>
-              </div>
-
-              <div className={`${styles.formFooter} ${styles.formFooterRating}`}>
-                <button
-                  className={`${styles.formSubmit} ${styles.formSubmitContact} ${styles.buttonWhiteGreen} ${styles.sendGetInTouch}`}
-                >
-                  Send
-                </button>
-              </div>
-
+    <>
+      <div className={styles.leftBox}>
+        <span style={{ marginTop: 10 }}>Contact Us</span>
+        <form className={styles.formContact}>
+          <input
+            type="text"
+            name="fname"
+            placeholder="First Name*"
+            // value={formData.name}
+            // onChange={handleChange}
+            required
+          />
+          <input
+            type='text'
+            placeholder="Last Name*"
+            name='lname'
+            // value={formData.name}
+            // onChange={handleChange}
+            required
+          />
+          <input
+            type='email'
+            placeholder="Business Email*"
+            name='lname'
+            // value={formData.name}
+            // onChange={handleChange}
+            required
+          />
+          <input
+            type='email'
+            placeholder="Alternative Email"
+            name='lname'
+          // value={formData.name}
+          // onChange={handleChange}
+          />
+          <div style={{
+            width: 443,
+            height: 36,
+            fontSize: 16,
+            fontWeight: 400,
+            color: 'grey',
+            borderRadius: '5px'
+          }}>
+            <PhoneInput
+              value={phone}
+              onChange={setPhone}
+              defaultCountry="JO"
+              international
+            />
+          </div>
+          <input
+            type='text'
+            placeholder="Company"
+            name='company'
+            // value={formData.name}
+            // onChange={handleChange}
+            required
+          />
+          <div className={styles.textAreaWrapper}>
+            <textarea
+              type="text"
+              placeholder="Tell us something about your project"
+              name="lname"
+              required
+            />
+            <span className={styles.attachLabel}><GrAttachment />Attach file</span>
+          </div>
+          <div className={styles.checkboxWrapper}>
+            <label>
               <input
-                type="hidden"
-                id="checkBrowse"
-                className={styles.checkBrowse}
-                name="check_ad_block"
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleChange}
               />
+              Request an NDA
+            </label>
+          </div>
+        </form>
+        <p style={{ fontSize: 12, fontWeight: 400, color: 'gray', padding: "0px 65px" }}>
+          By sending this form I confirm that I have read and accept Intellectsoft{" "}
+          <span style={{ color: 'blue', cursor: 'pointer' }}>Privacy Policy</span>
+        </p>
+        <button style={{ backgroundColor: "rgb(245, 76, 76)", width: "87%", borderRadius: 8, color: 'white', borderColor: "transparent", fontSize: 16, fontWeight: 600, height: 60 }}>
+          Send
+        </button>
 
-              <p className={styles.contactError}>
-                Something went wrong. Send form again, please.
-              </p>
-
-              <div className={styles.formSpinner}>
-                <div className={styles.rect1}></div>
-                <div className={styles.rect2}></div>
-                <div className={styles.rect3}></div>
-                <div className={styles.rect4}></div>
-                <div className={styles.rect5}></div>
-              </div>
-            </form>
-
-            <div className={`${styles.jsThx} ${styles.thank} ${styles.thankBorderNone} ${styles.textWhite}`}>
-              <div className={`${styles.thankContent} ${styles.thankContentBlue}`}>
-                <h3 className={`${styles.thankTitle} ${styles.thankTitleBig}`}>
-                  Thank you for your response!
-                </h3>
-                <p className={styles.thankText}>
-                  We have sent an email to <b><span className={styles.thankTextUserEmail}></span></b>{" "}
-                  to acknowledge receipt of your request. In the event that you have not received
-                  our email, we kindly suggest checking your spam folder or alternatively,
-                  contacting us directly at{" "}
-                  <b>
-                    <a href="mailto:info@intellectsoft.net">info@intellectsoft.net</a>
-                  </b>
-                </p>
-                <a id="clearStorage" href="" className={`${styles.button} ${styles.buttonPrimary}`}>
-                  Send again
-                </a>
+      </div>
+      <div className={styles.rightBox}>
+        <div className={styles.heading}>WHAT'S NEXT?</div>
+          <div className={styles.box}>
+            <div className={styles.timelineCol}>
+              <div className={styles.nodeContainer}>
+                {steps.map((_, i) => (
+                  <div key={i} className={styles.node} aria-hidden />
+                ))}
               </div>
             </div>
-          </div>
-
-          <div className={styles.contactInformation}>
-            <p>What’s Next?</p>
-            <ul>
-              <li>
-                We will send a short email notifying you that we successfully received your request
-                and started working on it.
-              </li>
-              <li>
-                Our solution advisor analyzes your requirements and will reach back to you within 3
-                business days.
-              </li>
-              <li>
-                We may sign an optional mutual NDA within 1-2 business days to make sure you get the
-                highest confidentiality level.
-              </li>
-              <li>
-                Our business development manager presents you an initial project estimation,
-                ballpark figures, or our project recommendations within approximately 3-5 days.
-              </li>
-            </ul>
+            <div className={styles.contentCol}>
+              {steps.map((text, idx) => (
+                <div key={idx} className={styles.stepText}>
+                  {text}
+                </div>
+              ))}
+            </div>
+            <div className={styles.subtlePattern} aria-hidden />
           </div>
         </div>
-      </div>
-    </section>
+    </>
   );
 }
+
+export default ContactSection;

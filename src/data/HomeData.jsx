@@ -21,11 +21,22 @@ import logo20 from '../assets/images/home/logos/standard-chartered-removebg-prev
 import logo21 from '../assets/images/home/logos/who-removebg-preview.webp';
 import logo22 from '../assets/images/home/logos/Zain_(Unternehmen)_logo.svg.webp';
 import logo23 from '../assets/images/home/logos/بنك-الخرطوم-السودان-removebg-preview.webp';
+import { FaUsersGear } from "react-icons/fa6";
+import { GiTeacher } from "react-icons/gi";
+import { GiGears } from "react-icons/gi";
+import { RiRobot3Fill } from "react-icons/ri";
 import { MdDescription } from 'react-icons/md';
 import { BiCategory } from 'react-icons/bi';
 import { CiBank } from "react-icons/ci";
-
+import { BiBarChart } from "react-icons/bi"; 
+import { FaRegChartBar } from "react-icons/fa";
+import { BiRepeat } from "react-icons/bi"; // repeat / process loop
+import { FcProcess } from "react-icons/fc";
+import { RiTeamFill } from "react-icons/ri";
+import { AiOutlineCloudServer } from "react-icons/ai";
 import swiperImage from '../assets/images/home/swiper/venice-3183168_640.webp';
+
+import { PiBankLight } from "react-icons/pi";
 
 export const columns = [
   [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo23],
@@ -63,7 +74,7 @@ export const cards_info = [
 
 export const cards_info2 = [
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/1.svg',
+    Icon: PiBankLight,
     title: 'Banking Solutions',
     content:
       [
@@ -73,7 +84,7 @@ export const cards_info2 = [
       ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/7.svg',
+    Icon: RiRobot3Fill,
     title: 'Artificial Intellegence',
     content:
     [
@@ -83,7 +94,7 @@ export const cards_info2 = [
     ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/11.svg',
+    Icon: FaRegChartBar,
     title: 'ERP Services',
     content:
       [
@@ -94,7 +105,7 @@ export const cards_info2 = [
       ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/2.svg',
+    Icon: GiGears,
     title: 'Process Automation',
     content:
       [
@@ -104,7 +115,7 @@ export const cards_info2 = [
       ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/7.svg',
+    Icon: GiTeacher,
     title: 'Consultation and Training',
     content:
       [
@@ -116,7 +127,7 @@ export const cards_info2 = [
       ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/1.svg',
+    Icon: FaUsersGear,
     title: 'Outsourcing Services',
     content:
       [
@@ -128,7 +139,7 @@ export const cards_info2 = [
       ]
   },
   {
-    image: 'https://www.intellectsoft.net/assets/94166408/img/n-offers/solutions/11.svg',
+    Icon: AiOutlineCloudServer,
     title: 'Cloud Solutions',
     content:
       [
@@ -274,4 +285,11 @@ export const partnersData = [
     companies_bg:"https://wallpapercave.com/wp/wp2554629.jpg"
   }
 ];
+
+export const steps = [
+    "We will send a short email notifying you that we successfully received your request and started working on it.",
+    "Our solution advisor analyzes your requirements and will reach back to you within 3 business days.",
+    "We may sign an optional mutual NDA within 1-2 business days to make sure you get the highest confidentiality level.",
+    "Our business development manager presents you an initial project estimation, ballpark figures, or our project recommendations within approximately 3-5 days.",
+  ];
 
