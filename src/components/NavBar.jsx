@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/home.module.css';
+import styles from '../styles/home/home.module.css';
 import focusLogo from '../assets/images/home/bg/fkn-focus-logo-300x97.png';
 import trapImg from '../assets/images/home/navbar images/pexels-lkloeppel-466685.webp';
 import VerticalDivider from '../components/VerticalDivider';

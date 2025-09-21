@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/awards.module.css";
+import styles from "../styles/home/awards.module.css";
 
 const items = [
   { id: 1, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMT6wy6U_fvWN1mtwXo6sqfoD4RB6sqyR5Zg&s" },

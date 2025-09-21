@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../styles/contact.module.css';
+import styles from '../styles/home/contact.module.css';
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { GrAttachment } from "react-icons/gr";
@@ -54,7 +54,7 @@ function ContactSection() {
           // onChange={handleChange}
           />
           <div style={{
-            width: 443,
+            width:'100%',
             height: 36,
             fontSize: 16,
             fontWeight: 400,

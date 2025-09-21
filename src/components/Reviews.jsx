@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { LiaStarSolid } from "react-icons/lia";
-import styles from "../styles/home.module.css"; // adjust path
+import styles from "../styles/home/home.module.css"; // adjust path
 import { reviewsData } from "../data/HomeData";
 
 export default function Reviews() {

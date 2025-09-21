@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/autoplay";
-import styles from "../styles/partners.module.css";
+import styles from "../styles/home/partners.module.css";
 
 import { partnersData } from "../data/HomeData"; // adjust path if needed
 

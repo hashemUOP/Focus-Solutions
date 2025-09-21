@@ -1,8 +1,8 @@
 import React, { useState, Suspense, memo, useEffect, useRef } from 'react';
 import AutoRefreshComponent from '../components/Bg';
 import Footer from '../components/Footer';
-import styles from '../styles/home.module.css';
-import SlideAnime from './SlideAnime';
+import styles from '../styles//home/home.module.css';
+import SlideAnime from '../components/SlideAnime';
 import { IoSettingsSharp } from "react-icons/io5";
 import NavBar from '../components/NavBar';
 import { cards_info, cards_info2, columns, reviewsData } from '../data/HomeData';
@@ -53,9 +53,9 @@ const PanelAContent = memo(({ targetRef }) => {
       {/* navbar here */}
       <NavBar />
       <div className={[styles.panelA_Content_container,]}>
-        <h1>Build Bespoke Software Solution for Your Business Growth</h1>
+        <h1 style={{fontSize:35,padding:"0px 0px"}}>Accelerate Your Business With Our deployed Nearshore Technical Talent</h1>
         <p style={{ fontWeight: 300, fontSize: 18, paddingRight: 50 }}>
-          From innovative startups
+          We offer a full range of technology services
         </p>
         <div className={styles.panelA_cards_container}>
           {cards_info2.map((card, idx) => (

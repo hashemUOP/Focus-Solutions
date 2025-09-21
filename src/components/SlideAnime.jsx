@@ -1,6 +1,6 @@
 // SlideAnime.jsx
 import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
-import styles from "../styles/try.module.css";
+import styles from "../styles/home/try.module.css";
 
 export default function SlideAnime({ PanelAContent, PanelBContent }) {
   const [sliderValue, setSliderValue] = useState(0); // 0..100

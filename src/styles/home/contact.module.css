@@ -49,6 +49,7 @@
 
 /* individual node */
 .node {
+  margin-top: 8px;
   width: 42px;
   height: 42px;
   border-radius: 8px;
@@ -121,10 +122,12 @@
     align-items: center;
     background-color: white;
     gap: 20px;
+    width: 100%;
+    padding: 0px 40px
 }
 
 .formContact input{
-    width: 443px;
+    /* width: 443px; */
     height: 36px;
     font-size: 16px;
     font-weight: 400;
@@ -132,6 +135,7 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     padding-left: 10px;
+    width: 100%;
 }
 
 .textAreaWrapper {

@@ -5,17 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import '../src/styles/global.css'; // activating global css to project
 // If you need Bootstrap's JS (includes Popper)
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
+import Services from "./pages/Services";
 import Home from "./pages/Home";
 import Page404 from "./pages/404";
-import Try from "./pages/SlideAnime";
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element = {<Home/>} />
         <Route path="/home" element={<Home/>}/>
-        <Route path="/try" element ={<Try/>}/>
+        <Route path="/services" element ={<Services/>}/>
         {/* direct-all non existant routes for 404 */}
         <Route path="*" element={<Page404 />} />
       </Routes>
