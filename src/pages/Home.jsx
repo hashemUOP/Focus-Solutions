@@ -1,18 +1,15 @@
 import React, { useState, Suspense, memo, useEffect, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import AutoRefreshComponent from '../components/Bg';
 import Footer from '../components/Footer';
 import styles from '../styles//home/home.module.css';
 import SlideAnime from '../components/SlideAnime';
-import { IoSettingsSharp } from "react-icons/io5";
 import NavBar from '../components/NavBar';
 import { cards_info, cards_info2, columns, reviewsData } from '../data/HomeData';
-import CardSwiper from '../components/CardSwiper';
-import { LiaStarSolid } from "react-icons/lia";
 import Partners from '../components/Partners';
 import Reviews from '../components/Reviews';
 import Awards from '../components/Awards';
 import ContactSection from '../components/ContactSection';
-// import imageQuote1 from '../assets/images/home/swiper/q1.png'; 
 
 
 export default function Home() {
@@ -121,9 +118,9 @@ const PanelAContent = memo(({ targetRef }) => {
 });
 
 
-const PanelBContent = memo(({ targetRef, requestMeasure }) => {
+const PanelBContent = memo(({ targetRef, requestMeasure}) => {
   const [isMorePressed, setPress] = useState(false);
-
+  const navigate = useNavigate();
   // When isMorePressed toggles, ask parent to re-measure on the next frame
   useEffect(() => {
     if (typeof requestMeasure === "function") {
@@ -173,7 +170,7 @@ const PanelBContent = memo(({ targetRef, requestMeasure }) => {
                 loading="lazy"
                 onLoad={handleImgLoad}
               />
-              <div className="card-body">
+              <div className="card-body"  onClick={() => navigate("/services")}>
                 <h5 className="card-title">{card.title}</h5>
                 <p className="card-text" style={{ fontSize: 20 }}>
                   {card.content}
