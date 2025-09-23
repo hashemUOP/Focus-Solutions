@@ -1,11 +1,13 @@
 // SlideAnime.jsx
 import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import styles from "../styles/home/try.module.css";
+import PowerBankChat from "./PowerBankChat";
+import { LuBotMessageSquare } from "react-icons/lu";
 
 export default function SlideAnime({ PanelAContent, PanelBContent }) {
   const [sliderValue, setSliderValue] = useState(0); // 0..100
   const [progress, setProgress] = useState(0); // 0..1
-
+  const [showChat,setShowChat] = useState(false);
   // refs for reliable DOM measurement
   const containerRef = useRef(null);
   const panelBRef = useRef(null);
@@ -68,6 +70,34 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
 
   return (
     <div ref={containerRef} className={styles.container}>
+      {!showChat ? (
+          <div
+          style={{
+            width: 80,
+            height: 80,
+            borderRadius: 360,
+            backgroundColor: "rgb(0, 106, 255)",
+            position: "fixed",
+            right: 40,
+            bottom: 20,
+            zIndex:9,
+            display:"flex",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center",
+            filter:"opacity(90px)",
+            cursor:"pointer"
+          }}
+          onClick={()=>setShowChat(!showChat)}
+          >
+            <LuBotMessageSquare color="white" size={50}/>
+          </div>
+        ) : (
+          <PowerBankChat
+            show={showChat}
+            handleClose={() => setShowChat(false)}
+          />
+        )}
       {/* Panel A */}
       <section className={styles.panelA}>
         {PanelAContent}
@@ -77,7 +107,7 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
       <section
         ref={panelBRef}
         className={styles.panelB}
-        style={{ transform: `translateY(-${progress * 100}vh)` }}
+        style={{ transform: `translateY(-${progress * 100}vh)`}}
       >
         {injectedPanelBContent}
       </section>
