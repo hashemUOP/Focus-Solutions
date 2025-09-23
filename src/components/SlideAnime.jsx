@@ -1,7 +1,7 @@
 // SlideAnime.jsx
 import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import styles from "../styles/home/try.module.css";
-import PowerBankChat from "./PowerBankChat";
+import {PowerBankChat} from "./PowerBankChat";
 import { LuBotMessageSquare } from "react-icons/lu";
 
 export default function SlideAnime({ PanelAContent, PanelBContent }) {

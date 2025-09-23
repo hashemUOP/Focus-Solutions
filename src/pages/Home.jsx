@@ -10,7 +10,7 @@ import Partners from '../components/Partners';
 import Reviews from '../components/Reviews';
 import Awards from '../components/Awards';
 import ContactSection from '../components/ContactSection';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 
 export default function Home() {
@@ -120,7 +120,7 @@ const PanelAContent = memo(({ targetRef }) => {
 
 
 const PanelBContent = memo(({ targetRef, requestMeasure}) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [isMorePressed, setPress] = useState(false);
   const navigate = useNavigate();
   // When isMorePressed toggles, ask parent to re-measure on the next frame
@@ -242,8 +242,8 @@ const PanelBContent = memo(({ targetRef, requestMeasure}) => {
               <div className="card-body">
                 <h5 className="card-title">{card.title}</h5>
                 <p className="card-text" style={{ fontSize: 20 }}>
-                  {/* {card.content} */}
-                  {t('cards_info.Custom')}
+                  {card.content}
+                  {/* {t('cards_info.Custom')} */}
                 </p>
               </div>
             </div>

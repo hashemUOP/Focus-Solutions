@@ -5,10 +5,8 @@ import trapImg from '../assets/images/home/navbar images/pexels-lkloeppel-466685
 import VerticalDivider from '../components/VerticalDivider';
 import { FaAngleDown, FaGlobe } from 'react-icons/fa6';
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 function NavBar() {
-    const { i18n } = useTranslation();
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [isNavHovered, setIsNavHovered] = useState(false);
     const [isNavItemHovered, setIsItemNavHovered] = useState(false);
@@ -24,9 +22,9 @@ function NavBar() {
         "Contact us",
     ];
 
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    };
+    // const changeLanguage = (lng) => {
+    //     i18n.changeLanguage(lng);
+    // };
 
     return (
         <div
@@ -90,12 +88,12 @@ function NavBar() {
                                     {/* Dropdown Menu */}
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <button className="dropdown-item" onClick={() => {setChoosenLang('English');changeLanguage("en");}}>
+                                            <button className="dropdown-item" onClick={() => {setChoosenLang('English');}}>
                                                 English
                                             </button>
                                         </li>
                                         <li>
-                                            <button className="dropdown-item" onClick={() => {setChoosenLang("Arabic");changeLanguage("ar");}}>
+                                            <button className="dropdown-item" onClick={() => {setChoosenLang("Arabic");}}>
                                                 Arabic
                                             </button>
                                         </li>

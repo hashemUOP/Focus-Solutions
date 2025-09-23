@@ -1,7 +1,7 @@
 .chat_container {
   background-color: rgb(242, 242, 242);
   height: 600px;
-  width: 370px;
+  width: 400px;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -10,7 +10,7 @@
   color: black;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
 }
 
 /* header stays at top */
@@ -34,7 +34,7 @@
 
 /* system / received messages */
 .chat_message {
-  background-color: rgb(18, 43, 61);
+  background-color: white;
   font-size: 14px;
   color: white;
   padding: 10px 10px;
@@ -42,11 +42,14 @@
   align-self: flex-start;
   max-width: 70%;
   word-wrap: break-word;
+  color: black;
+  font-weight: 500;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
 }
 
 /* user messages */
 .chat_user {
-  background-color: red;
+  background-color:rgb(27, 54, 71);
   font-size: 14px;
   color: white;
   padding: 10px 10px;
@@ -54,6 +57,7 @@
   align-self: flex-end;
   max-width: 70%;
   word-wrap: break-word;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
 .chat_footer {
@@ -71,6 +75,7 @@
   gap: 10px;
   padding: 0 10px;
   box-sizing: border-box;      
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
 .chat_footer input {
