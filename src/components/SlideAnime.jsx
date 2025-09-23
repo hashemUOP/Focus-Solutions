@@ -71,25 +71,7 @@ export default function SlideAnime({ PanelAContent, PanelBContent }) {
   return (
     <div ref={containerRef} className={styles.container}>
       {!showChat ? (
-          <div
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 360,
-            backgroundColor: "rgb(0, 106, 255)",
-            position: "fixed",
-            right: 40,
-            bottom: 20,
-            zIndex:9,
-            display:"flex",
-            flexDirection:"column",
-            alignItems:"center",
-            justifyContent:"center",
-            filter:"opacity(90px)",
-            cursor:"pointer"
-          }}
-          onClick={()=>setShowChat(!showChat)}
-          >
+          <div className={styles.chat_circle} onClick={()=>setShowChat(!showChat)}>
             <LuBotMessageSquare color="white" size={50}/>
           </div>
         ) : (

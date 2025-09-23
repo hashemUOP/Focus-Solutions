@@ -70,3 +70,20 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
   cursor: pointer;
 }
+
+.chat_circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: grey;
+  position: fixed;
+  right: 40px;
+  bottom: 20px;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  filter: opacity(70%);
+  cursor: pointer;
+}

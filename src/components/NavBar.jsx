@@ -7,7 +7,6 @@ import { FaAngleDown, FaGlobe } from 'react-icons/fa6';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-
 function NavBar() {
     const { i18n } = useTranslation();
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -65,7 +64,7 @@ function NavBar() {
                         {
                             idx !== 0 && (
                                 <>
-                                    <span style={{ fontWeight: lastItemHoveredIndex === idx ? 900 : 400 }}>
+                                    <span style={{ fontWeight: lastItemHoveredIndex === idx ? 900 : 400 }} onClick={idx === 5?() => navigate('/contact'):()=>console.log("item: ",idx)}>
                                         {item}
                                     </span>
                                     <FaAngleDown />

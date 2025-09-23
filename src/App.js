@@ -8,12 +8,14 @@ import '../src/styles/global.css'; // activating global css to project
 import Services from "./pages/Services";
 import Home from "./pages/Home";
 import Page404 from "./pages/404";
+import Contact from "./pages/Contact";
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element = {<Home/>} />
         <Route path="/home" element={<Home/>}/>
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="/services" element ={<Services/>}/>
         {/* direct-all non existant routes for 404 */}
         <Route path="*" element={<Page404 />} />
