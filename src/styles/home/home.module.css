@@ -90,6 +90,7 @@ html, body {
   padding: 0px 180px;
   background-color: white;
   z-index: 1000;
+  border-bottom: 1px solid lightgrey;
 }
 .navbar:hover{
   background-color: white;
@@ -120,7 +121,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   gap: 50px;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid lightgrey;
 }
 .navbar_info_container_items_container{
    display: flex;

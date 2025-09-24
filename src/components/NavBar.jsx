@@ -62,7 +62,7 @@ function NavBar() {
                         {
                             idx !== 0 && (
                                 <>
-                                    <span style={{ fontWeight: lastItemHoveredIndex === idx ? 900 : 400 }} onClick={idx === 5?() => navigate('/contact'):()=>console.log("item: ",idx)}>
+                                    <span style={{ fontWeight: lastItemHoveredIndex === idx ? 900 : 400 }} onClick={idx === 5?() => navigate('/contact'): idx===1?()=>navigate('/services'):()=>console.log("item: ",idx)}>
                                         {item}
                                     </span>
                                     <FaAngleDown />

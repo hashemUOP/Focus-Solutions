@@ -3,7 +3,7 @@
   min-height: 100vh;      
   display: flex;
   flex-direction: column;  /* stack navbar, content, footer */
-  background-color: rgb(250, 250, 250);
+  background-color: hwb(0 83% 17% / 0.977);
 }
 
 .main {
@@ -17,7 +17,7 @@
     grid-template-rows: repeat(8, 1fr);
     align-self: center;
     justify-self: center;
-    gap: 10px;
+    gap: 20px;
     min-height: 900px;
     padding-bottom: 150px;
 }

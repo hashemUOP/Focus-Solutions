@@ -23,7 +23,6 @@ export default function Footer() {
               <li><a href="#">Blog</a></li>
             </ul>
           </div>
-
           <div className={styles.footer_col}>
             <h4 className={styles.footer_title}>Help</h4>
             <ul className={styles.footer_list}>

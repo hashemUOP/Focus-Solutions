@@ -1,0 +1,109 @@
+.servicesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+/* Panel A */
+.panelA {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.panelAContent {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40vh;
+  left: 50px;
+  color: white;
+}
+
+.panelATitle {
+  padding: 0px 75px;
+  font-size: 50px;
+}
+
+.panelADescription {
+  padding: 0px 70px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* Panel B */
+.panelB {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panelBTitle {
+  padding-top: 50px;
+}
+
+.panelBSubtitle {
+  padding-left: 320px;
+  padding-right: 320px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.panelBContent {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.panelBList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: 20px;
+}
+
+.panelBListItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.panelBListText {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.panelBImage {
+  height: 400px;
+  width: 380px;
+}
+
+.panelBBlackBox {
+  width: 100vw;
+  height: 500px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

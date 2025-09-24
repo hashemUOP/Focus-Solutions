@@ -1,14 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import styles from '../styles/contact.module.css';
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiTwotoneMail } from "react-icons/ai";
+import {PowerBankChat} from "../components/PowerBankChat";
+import { LuBotMessageSquare } from "react-icons/lu";
+import try_styles from '../styles/home/try.module.css';
 
 export default function Contact() {
+  const [showChat,setShowChat] = useState(false);
   return (
     <div className={styles.page}>
+      {!showChat ? (
+          <div className={try_styles.chat_circle} onClick={()=>setShowChat(!showChat)}>
+            <LuBotMessageSquare color="white" size={50}/>
+          </div>
+        ) : (
+          <PowerBankChat
+            show={showChat}
+            handleClose={() => setShowChat(false)}
+          />
+        )}
       <NavBar />
       <main className={styles.main}>
         <div style={{ marginTop: "20dvh" }} />
@@ -41,7 +55,7 @@ export default function Contact() {
                   <label htmlFor="phone">Phone Number:</label>
                   <input
                     id="phone"
-                    type="number"
+                    type="tel"
                     placeholder="Enter your phone number*"
                   />
                 </div>

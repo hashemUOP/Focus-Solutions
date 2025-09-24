@@ -78,6 +78,7 @@ function ContactSection() {
           />
           <div className={styles.textAreaWrapper}>
             <textarea
+              style={{resize:"none"}}
               type="text"
               placeholder="Tell us something about your project"
               name="lname"
