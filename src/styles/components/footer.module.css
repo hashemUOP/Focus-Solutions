@@ -31,10 +31,6 @@
   margin: 0;
 }
 
-.footer_list li {
-  margin: 6px 0;
-}
-
 .footer_list a {
   color: #cfe7ff;
   text-decoration: none;
@@ -42,6 +38,7 @@
 }
 .footer_list a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 /* bottom row */

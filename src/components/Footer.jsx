@@ -7,8 +7,10 @@ import {
   BsDribbble,
 } from "react-icons/bs";
 import styles from "../styles/components/footer.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className={styles.site_footer} role="contentinfo">
       <div className={styles.footer_container}>
@@ -26,7 +28,7 @@ export default function Footer() {
             <h4 className={styles.footer_title}>Help</h4>
             <ul className={styles.footer_list}>
               <li><a href="#">Support</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a onClick={() => navigate('/contact')}>Contact</a></li>
               <li><a href="#">Docs</a></li>
             </ul>
           </div>
