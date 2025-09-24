@@ -28,7 +28,7 @@ export default function Contact() {
                 </span>
                 <hr style={{ color: "black", marginTop: 2, marginBottom: 0 }} />
               </div>
-              <div style={{display:"flex",flexDirection:"row",width:"100%",gap:10}}>
+              <div style={{display:"flex",flexDirection:"row",width:"100%",gap:10,marginTop: "15px"}}>
                 <div className={styles.inputGroup}>
                   <label htmlFor="name">Name:</label>
                   <input
@@ -47,13 +47,9 @@ export default function Contact() {
                 </div>
 
               </div>
-              <div className={styles.inputGroup}>
+              <div className={styles.inputGroup} style={{ marginTop: "15px" }}>
                 <label htmlFor="email">Email:</label>
-                <input
-                  id="email"
-                  type="text"
-                  placeholder="Enter your email*"
-                />
+                <input id="email" type="text" placeholder="Enter your email*" />
               </div>
               <div className={styles.inputGroup}>
                 <label htmlFor="message">Your Message:</label>

@@ -89,7 +89,6 @@ html, body {
   align-items: center;
   padding: 0px 180px;
   background-color: white;
-  filter: opacity(90%);
   z-index: 1000;
 }
 .navbar:hover{
@@ -121,6 +120,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   gap: 50px;
+  border-bottom: 2px solid black;
 }
 .navbar_info_container_items_container{
    display: flex;
