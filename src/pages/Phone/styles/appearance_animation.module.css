@@ -1,0 +1,53 @@
+/* Usage example in React:
+<div className={styles.fade-in}>Hello world</div> */
+
+
+/* 1️⃣ Simple Fade-in with CSS */
+.fade-in {
+  opacity: 0;          /* start hidden */
+  transform: translateY(20px); /* optional: slide up */
+  animation: fadeIn 0.5s forwards; /* duration + forwards to keep end state */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* 2️⃣ Slide-in from Left/Right */
+/* Change translateX(-50px) → translateX(50px) for sliding in from right. */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* 3️⃣ Scale-up (pop-in) Animation */
+.pop-in {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popIn 0.4s forwards;
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+

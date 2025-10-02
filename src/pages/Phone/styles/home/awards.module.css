@@ -1,0 +1,35 @@
+.scrollerContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px;
+  scrollbar-width: none;
+  padding-bottom: 75px;
+}
+
+.scrollerContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 auto;
+  transition: transform 0.5s, filter 0.5s; /* add filter here */
+}
+
+.item img {
+  width: 85px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(80%);
+  transition: filter 0.5s; /* make sure img filter also transitions */
+}
+
+.item.active {
+  transform: scale(1.2);
+}
+
+.item.active img {
+  filter: grayscale(0%);
+}
